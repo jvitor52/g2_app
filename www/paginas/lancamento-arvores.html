@@ -1,0 +1,106 @@
+<ion-view view-title="G2 Forest">
+    <ion-content ng-controller='ListaParcelaCtrl'>
+        <ion-nav-view>
+
+        <div class="im-wrapper" delegate-handle="my-handle" style="padding: 0 !important;"> 
+            <div style="background: #50ad82;padding: 10px;">
+                <h4 class="border-top">
+                    Pré Cort\Faz: {{lancamentoParcela.fazenda}}\{{lancamentoParcela.talhao}}\{{lancamentoParcela.parcela}}
+                </h4>
+            </div>           
+            <div class="list" style="padding: 10px;">
+                <div>
+                    <label class="label25">
+                        <span class="input-label">Lin / Árv</span>
+                        <input type="text" class="data" placeholder="Lin/Árv" ng-model="lancamentoArv.linha_arvore">
+                    </label> 
+                    <label class="label50">
+                        <label class="checkbox labelTotal" style="margin-top: 30px;">
+                            <input type="checkbox" ng-Model="lancamentoArv.fim_linha" style="float:left;border-radius: 20px;border: 1px solid #30684e;" />
+                            <span class="input-label" style="float:left;max-width: 80% !important;margin-left: 3%;font-size: 1.2em;">Fim de linha</span>
+                        </label>
+                    </label>
+                    <label class="label25">
+                        <span class="input-label">Nº :</span>
+                        <input type="text" class="data" placeholder="Lin/Árv" disabled ng-model="listaArvores.length">
+                    </label>
+                    <label class="labelTotal">
+                        <span class="input-label">Matrix</span>
+                        <select ng-model="lancamentoArv.martrix">
+                            <option>Normal</option>
+                            <option>Dominante</option>
+                            <option>Multipla</option>
+                            <option>Falha</option>
+                            <option>Bifurcada Acima</option>
+                            <option>Morta</option>
+                            <option>Quebrada</option>
+                            <option>Ponta Seca</option>
+                            <option>Inclinada</option>
+                            <option>Torta</option>
+                            <option>Árvore Viva com Fuste Morto</option>
+                            <option>Dano por Fogo</option>
+                            <option>Ataque de Macaco</option>
+                            <option>Outros*</option>
+                            <option>CAP Deformado</option>
+                        </select>
+                    </label>
+                    <label class="label50">
+                        <span class="input-label">DAP (cm)</span>
+                        <input type="number" class="data" placeholder="Lin/Árv"  ng-model="lancamentoArv.dap">
+                    </label>                   
+                    <label class="label50">
+                        <span class="input-label">Altura (m)</span>
+                        <input type="number" class="data" placeholder="Lin/Árv"  ng-model="lancamentoArv.altura">
+                    </label> 
+                    <label class="label50">
+                        <span class="input-label">DAP 2 (cm)</span>
+                        <input type="number" class="data" placeholder="Lin/Árv"  ng-model="lancamentoArv.dap2">
+                    </label>                   
+                    <label class="label50">
+                        <span class="input-label">H Poda (m)</span>
+                        <input type="number" class="data" placeholder="Lin/Árv"  ng-model="lancamentoArv.alt_poda">
+                    </label> 
+                    <label class="label50">
+                        <label class="checkbox labelTotal" style="margin-top: 30px;">
+                            <input type="checkbox" ng-Model="lancamentoArv.dominante" style="float:left;border-radius: 20px;border: 1px solid #30684e;" />
+                            <span class="input-label" style="float:left;max-width: 80% !important;margin-left: 3%;font-size: 1.2em;">Dominante</span>
+                        </label>
+                    </label>
+                    <label class="label50" style="margin-top: 40px;">
+                        <span class="input-label">{{contAtual}} / {{contTotal}}</span>
+                    </label>
+                </div>
+                <button class="button icon-left button-balanced button-block buttomSalvar" ng-click="salvarArvore()">Salvar</button>
+                <button class="button icon-left button-balanced button-block buttomFinalizar" ng-show="contAtual == contTotal" ng-click="finalizar()">Finalizar</button>
+                <button class="button icon-left button-balanced button-block buttomCancelar" ng-show="contAtual != contTotal" ng-click="cancelarLancArvore()">Continuar depois</button>
+                
+                <table ng-show="listaArvores.length > 0" styled="margin-bottom:5% !important">
+                    <thead>
+                        <tr>
+                        <td>Matrix</td>
+                        <td>DAP</td>
+                        <td>Dominante</td>
+                        <td ng-show="!lancamentoParcela.status"></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="(key,arv) in listaArvores track by $index">
+                            <td style="width: 20% !important;">{{arv.matrix}}</td>
+                            <td style="width: 20% !important;">{{arv.dap}}</td>
+                            <td style="width: 20% !important;">{{arv.dominante == 'S' ? 'Sim' : 'Não'}}</td>
+                            <td ng-show="!lancamentoParcela.status" style="width: 10% !important;text-align: center;"><img src="img/delete.png" ng-show="key == listaArvores.length - 1" ng-click="excluirArvore(arv.id)" width="32"/></td>
+                        </tr>
+                    </tbody>
+                </table>    
+            </div>
+            
+
+        </div>
+    </div>
+        
+        <!-- Msg Carregando -->
+    </ion-nav-view>
+
+    </ion-content>
+   
+</ion-view>

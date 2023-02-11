@@ -1,0 +1,43 @@
+<ion-view view-title="G2 Forest">
+    <ion-content ng-controller='ListaParcelaCtrl'>
+        <ion-nav-view>
+
+        <div class="im-wrapper" delegate-handle="my-handle" style="padding: 0 !important;"> 
+            <div style="background: #50ad82;padding: 10px;">
+                <h4 class="border-top">
+                    Pré Cort\Faz: {{lancamentoParcela.fazenda}}\{{lancamentoParcela.talhao}}\{{lancamentoParcela.parcela}}
+                </h4>
+            </div>           
+            <div class="list" style="padding: 10px;">
+                <div>
+                    
+                    <table ng-show="listaArvoresDominantes.length > 0" styled="margin-bottom:5% !important">
+                    <thead>
+                        <tr>
+                            <td>Linha</td>
+                            <td>Arvore</td>
+                            <td>DAP</td>
+                            <td>Altura</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="(key,arv) in listaArvoresDominantes track by $index">
+                            <td style="width: 20% !important;">{{arv.linha}}</td>
+                            <td style="width: 20% !important;">{{arv.numero}}</td>
+                            <td style="width: 20% !important;">{{arv.dap}}</td>
+                            <td><input type="number" class="data" placeholder="Altura"  ng-model="arv.altura"></td>
+                        </tr>
+                    </tbody>
+                    </table>    
+                    <button class="button icon-left button-balanced button-block buttomSalvar" ng-click="concluir()">Concluir</button>                    
+                    
+                </div>
+            </div>
+    </div>
+        
+        <!-- Msg Carregando -->
+    </ion-nav-view>
+
+    </ion-content>
+   
+</ion-view>

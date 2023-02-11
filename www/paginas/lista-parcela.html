@@ -1,0 +1,22 @@
+<ion-view view-title="G2 Forest">
+  <ion-content ng-controller="ListaParcelaCtrl">
+      <div class="im-wrapper">
+        <table styled="margin-bottom:5% !important">
+          <thead>
+            <tr>
+              <td>Parcela</td>
+              <td>Área</td>
+              <td>Status</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-click="lancarParcelas(pa)" ng-repeat="(key,pa) in parcelas track by $index">
+              <td style="width: 20% !important;">{{pa.parcela}}</td>
+              <td style="width: 20% !important;">{{pa.area_parcela}}</td>
+              <td style="width: 20% !important;text-align: center;"><img src="img/cancel.png" ng-show="!pa.status" width="32"/><img src="img/success.png" ng-show="pa.status" width="32"/></td>
+            </tr>            
+          </tbody>
+        </table>
+      </div>
+  </ion-content>
+</ion-view>

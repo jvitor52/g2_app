@@ -1,0 +1,35 @@
+<style>
+    .seletor80.item.item-checkbox {
+        border: none !important;
+    }
+    
+    .seletor80.item-checkbox .checkbox {
+        left: 20px !important;
+    }
+</style>
+<ion-view view-title="G2 Forest" class="show">    
+    <ion-content ng-controller="ComponentsCtrl" ng-show="mat == 0 "  style="display: flex;align-items: center;justify-content: center;">                
+        <div class="im-wrapper" >
+            <!-- Ionic Components -->
+            
+            <div class="list" style="border:1px solid #04844c;padding: 20px;border-radius: 10px;background: #a4d5be ;">                
+                
+                </br>
+                </br>
+                <label class="labelTotal">
+                    <input type="text" ng-model="usuario" placeholder="Nome" style="width: 100% !important">
+                </label>
+                <label class="labelTotal">
+                    <input type="password" class="login" placeholder="Senha" ng-model="senha" style="border: 1px solid #ccc !important;padding: 0;width: 100% !important;height: 35px !important;">
+                </label>
+
+                <button class="button icon-left button-balanced button-block salvar"  data-ink-color="#30684e" ng-click="salvar()" data-ink-opacity="1" style="margin-bottom: 20px;">
+                    <span ng-if="!gif">
+                        Entrar
+                    </span>
+                </button>
+            </div>
+        </div>        
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,20 @@
+<ion-view view-title="G2 Forest">
+  <ion-content ng-controller="ListaTalhaoCtrl">
+      <div class="im-wrapper">
+        <table styled="margin-bottom:5% !important">
+          <thead>
+            <tr>
+              <td>Talhão</td>
+              <td>Área</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-click="acessoParcelas(faz)" ng-repeat="(key,faz) in talhoes track by $index">
+              <td style="width: 20% !important;">{{faz.talhao}}</td>
+              <td style="width: 20% !important;">{{faz.area_talhao}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </ion-content>
+</ion-view>

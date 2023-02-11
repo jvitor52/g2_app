@@ -1,0 +1,34 @@
+ALTER TABLE `florestal`.`servico_os` 
+ADD COLUMN `id_mobile` INT UNSIGNED NULL AFTER `lanca_os_mecanica_id`,
+ADD COLUMN `matricula_id` INT UNSIGNED NULL AFTER `id_mobile`,
+ADD INDEX `sos_matricula_idx` (`matricula_id` ASC);
+ALTER TABLE `florestal`.`servico_os` 
+ADD CONSTRAINT `sos_matricula`
+  FOREIGN KEY (`matricula_id`)
+  REFERENCES `florestal`.`matricula` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+ALTER TABLE `florestal`.`servico_os_materiais` 
+ADD COLUMN `id_mobile` INT UNSIGNED NULL AFTER `servico_os_id`,
+ADD COLUMN `matricula_id` INT UNSIGNED NULL AFTER `id_mobile`,
+ADD INDEX `sosm_matricula_idx` (`matricula_id` ASC);
+ALTER TABLE `florestal`.`servico_os_materiais` 
+ADD CONSTRAINT `sosm_matricula`
+  FOREIGN KEY (`matricula_id`)
+  REFERENCES `florestal`.`matricula` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+ALTER TABLE `florestal`.`servico_os_mecanico` 
+ADD COLUMN `id_mobile` INT UNSIGNED NULL AFTER `servico_os_id`,
+ADD COLUMN `matricula_id` INT UNSIGNED NULL AFTER `id_mobile`,
+ADD INDEX `som_matricula_idx` (`matricula_id` ASC);
+ALTER TABLE `florestal`.`servico_os_mecanico` 
+ADD CONSTRAINT `som_matricula`
+  FOREIGN KEY (`matricula_id`)
+  REFERENCES `florestal`.`matricula` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;

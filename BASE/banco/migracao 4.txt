@@ -1,0 +1,52 @@
+ALTER TABLE `florestal`.`operadores_maquina` 
+CHANGE COLUMN `texto` `nome` VARCHAR(45) NULL DEFAULT NULL ;
+ALTER TABLE `florestal`.`turno` 
+CHANGE COLUMN `texto` `nome` VARCHAR(45) NULL DEFAULT NULL ;
+
+
+ALTER TABLE `florestal`.`mes_ano` 
+CHANGE COLUMN `texto` `nome` VARCHAR(45) NULL DEFAULT NULL ;
+
+
+ALTER TABLE `florestal`.`lanca_producao_operacao` 
+ADD COLUMN `id_mobile` INT UNSIGNED NULL AFTER `finaliza_talhao`,
+ADD COLUMN `matricula_id` INT UNSIGNED NULL AFTER `id_mobile`,
+ADD INDEX `lancapo_matricula_idx` (`matricula_id` ASC);
+ALTER TABLE `florestal`.`lanca_producao_operacao` 
+ADD CONSTRAINT `lancapo_matricula`
+  FOREIGN KEY (`matricula_id`)
+  REFERENCES `florestal`.`matricula` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+ALTER TABLE `florestal`.`lanca_producao_operacao` 
+DROP FOREIGN KEY `lancapo_mo`;
+ALTER TABLE `florestal`.`lanca_producao_operacao` 
+ADD INDEX `lancapo_mo_idx` (`manutencao_operacional_id` ASC),
+DROP INDEX `lancapo_mo_idx` ;
+ALTER TABLE `florestal`.`lanca_producao_operacao` 
+ADD CONSTRAINT `lancapo_mo`
+  FOREIGN KEY (`manutencao_operacional_id`)
+  REFERENCES `florestal`.`motivo_parada_maquina` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+ALTER TABLE `florestal`.`lanca_horas_paradas` 
+ADD COLUMN `id_mobile` INT UNSIGNED NULL AFTER `lanca_producao_operacao_id`,
+ADD COLUMN `matricula_id` INT UNSIGNED NULL AFTER `id_mobile`,
+ADD INDEX `lancahp_matricula_idx` (`matricula_id` ASC);
+ALTER TABLE `florestal`.`lanca_horas_paradas` 
+ADD CONSTRAINT `lancahp_matricula`
+  FOREIGN KEY (`matricula_id`)
+  REFERENCES `florestal`.`matricula` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+ALTER TABLE `florestal`.`manutencao_operacao` 
+CHANGE COLUMN `texto` `nome` VARCHAR(45) NULL DEFAULT NULL ;
+
+INSERT INTO `florestal`.`manutencao_operacao` (`nome`) VALUES ('MANUTENÇÃO');
+INSERT INTO `florestal`.`manutencao_operacao` (`nome`) VALUES ('OPERACIONAL');

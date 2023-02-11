@@ -1,0 +1,73 @@
+{
+  "name": "meuprojeto",
+  "version": "1.1.1",
+  "description": "meuprojeto: An Ionic project",
+  "dependencies": {
+    "@ionic-native/barcode-scanner": "^5.15.1",
+    "@ionic-native/camera": "^4.20.0",
+    "@ionic-native/device": "^4.20.0",
+    "@ionic-native/file": "^4.20.0",
+    "@ionic-native/keyboard": "^4.20.0",
+    "@ionic/app-scripts": "^3.1.1-201711132008",
+    "cordova": "^9.0.0",
+    "cordova-android": "^11.0.0",
+    "cordova-browser": "5.0.1",
+    "cordova-plugin-app-version": "^0.1.14",
+    "cordova-plugin-barcodescanner": "^0.7.4",
+    "cordova-plugin-camera": "^6.0.0",
+    "cordova-plugin-device": "^2.1.0",
+    "cordova-plugin-geolocation": "^4.1.0",
+    "cordova-plugin-network-information": "^3.0.0",
+    "cordova-plugin-qrscanner": "^3.0.1",
+    "cordova-res": "^0.15.4",
+    "font-awesome": "^4.7.0",
+    "gulp-concat": "^2.2.0",
+    "gulp-minify-css": "^0.3.0",
+    "gulp-rename": "^1.2.0",
+    "ionic": "^5.4.4",
+    "jetifier": "^2.0.0",
+    "node-sass": "^4.14.1",
+    "phonegap-plugin-barcodescanner": "^8.1.0",
+    "react-scripts": "^5.0.1",
+    "ui-select": "^0.19.8"
+  },
+  "devDependencies": {
+    "@ionic/v1-toolkit": "2.0.11",
+    "bower": "^1.3.3",
+    "cordova-plugin-file": "^7.0.0",
+    "cordova-plugin-file-transfer": "git+https://github.com/apache/cordova-plugin-file-transfer.git",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-util": "^2.2.14",
+    "shelljs": "^0.3.0"
+  },
+  "cordovaPlugins": [
+    "cordova-plugin-device",
+    "cordova-plugin-console",
+    "cordova-plugin-statusbar",
+    "cordova-plugin-splashscreen",
+    "ionic-plugin-keyboard"
+  ],
+  "cordovaPlatforms": [],
+  "cordova": {
+    "platforms": [
+      "browser",
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-file-transfer": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-app-version": {},
+      "cordova-plugin-network-information": {},
+      "cordova-plugin-camera": {
+        "ANDROIDX_CORE_VERSION": "1.6.+"
+      },
+      "cordova-plugin-geolocation": {
+        "GPS_REQUIRED": "true"
+      },
+      "phonegap-plugin-barcodescanner": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      }
+    }
+  }
+}

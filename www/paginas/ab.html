@@ -1,0 +1,84 @@
+<ion-view view-title="G2 Forest">
+    <ion-content>
+        <div class="bar bar-subheader bar-energized-100 static text-center pantone-151c">
+            <strong class="title">&#127970; EMPRESA: {{enterprise.empresaNome}}</strong>
+        </div>
+        <div class="bar bar-subheader bar-stable static text-center">
+            <strong class="title">Modulo de Abastecimento</strong>
+        </div>
+
+        <div class="im-wrapper">
+            <!-- Ionic Components -->
+            
+            <a href="#/app/abastecimento" ng-show="acessoAbastecimento == 'S' && pontoEntrada" ng-hide="bloqueado">
+                <button class="button  button-balanced button-block pantone-process-bluec"> 
+                    Abastecimento
+                </button>
+            </a>
+            <a href="#/app/aferimento" ng-show="acessoAfericaoBomba == 'S' && pontoEntrada" ng-hide="bloqueado">
+                <button class="button  button-balanced button-block pantone-process-bluec">
+                    Aferição de Bomba
+                </button>
+            </a>
+            <a href="#/app/medicao" ng-show="acessoMedicaoReservatorio == 'S' && pontoEntrada" ng-hide="bloqueado">
+                <button class="button  button-balanced button-block pantone-process-bluec">
+                    Medição do Reservatório
+                </button>
+            </a>
+            <a href="#/app/encerrante" ng-show="acessoLeituraBomba == 'S' && pontoEntrada" ng-hide="bloqueado">
+                <button class="button  button-balanced button-block pantone-process-bluec">
+                    Leitura da Bomba
+                </button>
+            </a>
+            <a href="#/app/drenagemTanque" ng-show="acessoDrenagemTanque == 'S' && pontoEntrada" ng-hide="bloqueado">
+                <button class="button button-balanced button-block pantone-process-bluec">
+                    Drenagem dos tanques
+                </button>
+            </a>
+
+            <a href="#/app/trocaElementoFiltrante" ng-show="acessoTrocaElementoFiltrante == 'S' && pontoEntrada" ng-hide="bloqueado">
+                <button class="button  button-balanced button-block pantone-process-bluec">
+                    Troca Elementos Filtrantes
+                </button>
+            </a>
+            <a href="#/app/controleLubrificacao" ng-show="acessoControleLubrificacao == 'S' && pontoEntrada" ng-hide="bloqueado">
+                <button class="button  button-balanced button-block pantone-process-bluec">
+                    Controle Lubrificação
+                </button>
+            </a>
+
+            <a href="#/app/consumoGraxa" ng-show="acessoConsumoGraxa == 'S' && pontoEntrada" ng-hide="bloqueado">
+                <button class="button button-balanced button-block pantone-process-bluec">
+                    Consumo Graxa
+                </button>
+            </a>
+
+            <a href="#/app/localizacaoPatrimonio" ng-show="acessoLocalizaPatrimonio == 'S' && pontoEntrada" ng-hide="bloqueado">
+                <button class="button button-balanced button-block pantone-process-bluec">
+                    Localiza Patrimônio
+                </button>
+            </a>
+            <div ng-show='true'>
+                <a ng-hide='pontoEntrada' ng-click='marcarEntrada()'>
+                    <button class="button button-balanced button-block">
+                    Ponto: Informar Entrada
+                </button>
+                </a>
+                <a ng-show='pontoEntrada' ng-click='marcarSaida()'>
+                    <button class="button button-assertive button-block">
+                    Ponto: Informar Saída
+                </button>
+                </a>
+
+                <br />
+            </div>
+        </div>
+        <div class="tabs-striped tabs-color-assertive" style="position: static; margin-bottom: 15px;">
+            <div class="tabs" style="position: static;">
+                <a href="#/app/" class="tab-item active sincronizar" data-ink-color="#ef473a" data-ink-opacity=".35">
+                    <i class="icon ion-home"></i> Tela Inicial
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

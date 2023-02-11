@@ -1,0 +1,44 @@
+ALTER TABLE `florestal`.`lanca_producao_operacao` 
+DROP FOREIGN KEY `lancapo_projeto`;
+ALTER TABLE `florestal`.`lanca_producao_operacao` 
+ADD INDEX `lancapo_projeto_idx` (`projeto_id` ASC),
+DROP INDEX `lancapo_projeto_idx` ;
+ALTER TABLE `florestal`.`lanca_producao_operacao` 
+ADD CONSTRAINT `lancapo_projeto`
+  FOREIGN KEY (`projeto_id`)
+  REFERENCES `florestal`.`projeto_estrutural` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+ALTER TABLE `florestal`.`lanca_producao_operacao` 
+DROP FOREIGN KEY `lancapo_operacao`;
+ALTER TABLE `florestal`.`lanca_producao_operacao` 
+DROP INDEX `lancapo_operacao_idx` ;
+
+
+ALTER TABLE `florestal`.`projeto_estrutural` 
+ADD COLUMN `fazenda_id` INT UNSIGNED NULL AFTER `nome`,
+ADD INDEX `pe_fazenda_idx` (`fazenda_id` ASC);
+ALTER TABLE `florestal`.`projeto_estrutural` 
+ADD CONSTRAINT `pe_fazenda`
+  FOREIGN KEY (`fazenda_id`)
+  REFERENCES `florestal`.`fazenda` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+ALTER TABLE `florestal`.`talhao` 
+ADD COLUMN `projeto_estrutural_id` INT UNSIGNED NULL AFTER `nome`,
+ADD COLUMN `talhaocol` VARCHAR(45) NULL AFTER `projeto_estrutural_id`,
+ADD INDEX `talhao_pe_idx` (`projeto_estrutural_id` ASC);
+ALTER TABLE `florestal`.`talhao` 
+ADD CONSTRAINT `talhao_pe`
+  FOREIGN KEY (`projeto_estrutural_id`)
+  REFERENCES `florestal`.`projeto_estrutural` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+ALTER TABLE `florestal`.`talhao` 
+DROP COLUMN `talhaocol`;

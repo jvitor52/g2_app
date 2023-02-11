@@ -1,0 +1,9 @@
+
+SET PATH=%PATH%;C:\Program Files\Java\jdk1.8.0_202\bin;C:\Users\User\AppData\Local\Android\Sdk\build-tools\30.0.0
+
+REM jarsigner -verbose -keystore input.keystore -sigalg SHA256withRSA -digestalg SHA1 -storepass ANI4n14n1$ -keypass ANI4n14n1$ input.apk alias_name
+
+jarsigner -verbose -keystore input.keystore -sigalg SHA256withRSA -digestalg SHA-256 -storepass ANI4n14n1$ -keypass ANI4n14n1$ input.apk alias_name
+zipalign -f -v 4 input.apk output.apk
+zipalign -c -v 4 output.apk
+pause

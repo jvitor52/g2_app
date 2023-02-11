@@ -1,0 +1,14 @@
+ALTER TABLE `florestal`.`servico_manutencao` 
+CHANGE COLUMN `texto` `nome` VARCHAR(45) NULL DEFAULT NULL ;
+
+ALTER TABLE `florestal`.`oficina` 
+CHANGE COLUMN `texto` `nome` VARCHAR(45) NULL DEFAULT NULL ;
+
+ALTER TABLE `florestal`.`compartimento` 
+CHANGE COLUMN `texto` `nome` VARCHAR(45) NULL DEFAULT NULL ;
+
+ALTER TABLE `florestal`.`sistema` 
+CHANGE COLUMN `texto` `nome` VARCHAR(45) NULL DEFAULT NULL ;
+
+ALTER TABLE `florestal`.`motivo_parada_maquina` 
+CHANGE COLUMN `texto` `nome` VARCHAR(45) NULL DEFAULT NULL ;

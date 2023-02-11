@@ -1,0 +1,87 @@
+<ion-view view-title="G2 Forest">
+    <ion-content ng-controller='ListaParcelaCtrl'>
+        <ion-nav-view>
+
+        <div class="im-wrapper" delegate-handle="my-handle" style="padding: 0 !important;"> 
+            <div style="background: #50ad82;padding: 10px;">
+                <h4 class="border-top">
+                    Pré Cort\Faz: {{lancamento.fazenda}}\{{lancamento.talhao}}\{{lancamento.parcela}}
+                </h4>
+            </div>           
+            <div class="list" style="padding: 10px;">
+                <div>
+                    <label class="label50">
+                        <span class="input-label">Parcela</span>
+                        <input type="text" class="data" placeholder="Parcela" ng-model="lancamento.parcela">
+                    </label>
+                    <label class="label50">
+                        <span class="input-label">Formato</span>
+                        <select ng-model="lancamento.formato">
+                            <option>Retangular</option>
+                            <option>Circular</option>
+                        </select>
+                    </label>                    
+                    <label class="label50">
+                        <span class="input-label">UTMX(Planejado)</span>
+                        <input type="text" class="data" disabled placeholder="UTMX(Planejado)" ng-model="lancamento.log_x">
+                    </label>
+                    <label class="label50">
+                        <span class="input-label">UTMY(Planejado)</span>
+                        <input type="text" class="data" disabled placeholder="UTMY(Planejado)" ng-model="lancamento.lat_y">
+                    </label>
+                    <label class="label50">
+                        <span class="input-label">Latitude</span>
+                        <input type="text" class="data" placeholder="Latitude" ng-model="lancamento.lat">
+                    </label>
+                    <label class="label50">
+                        <span class="input-label">Longitude</span>
+                        <input type="text" class="data" placeholder="Longitude" ng-model="lancamento.long">
+                    </label>
+                    <label class="label50">
+                        <span class="input-label">Lados (m)</span>
+                        <input type="text" class="data" disabled placeholder="Lado" ng-model="lancamento.lado1">
+                    </label>                                     
+                    <label class="label50">
+                        <span class="input-label">Área (m²)</span>
+                        <input type="text" class="data" disabled placeholder="Área" ng-model="lancamento.area_parcela">
+                    </label>  
+                </div>
+            </div>
+            <div style="background: #50ad82;height: 70px;float: left;margin-top: 30px;width: 100%;padding: 10px;">
+                <h4 class="border-top">
+                    Adicionais
+                </h4>
+                <div>
+                    <label class="labelTotal">
+                        <span class="input-label">Obs</span>
+                        <input type="text" class="data" placeholder="Obs" ng-model="lancamento.observacao">
+                    </label>
+                    <label class="labelTotal">
+                        <span class="input-label">Tipo</span>
+                        <input type="text" class="data" disabled placeholder="Tipo" ng-model="lancamento.tipo">
+                    </label>
+                    <label class="label50">
+                        <span class="input-label">Hora Ínicio</span>
+                        <input type="time" class="data" disabled placeholder="Hora Ínicio" ng-model="lancamento.hora_inicio">
+                    </label>
+                    <label class="label50">
+                        <span class="input-label">Hora Término</span>
+                        <input type="time" class="data" disabled placeholder="Hora Término" ng-model="lancamento.hora_fim">
+                    </label>
+                    <label class="labelTotal">
+                        <span class="input-label">Responsável</span>
+                        <input type="text" class="data" placeholder="Responsável" disabled ng-model="lancamento.responsavel">
+                    </label>
+                </div>
+                <button
+                    class="button icon-left button-balanced button-block salvar" ng-click="salvar()"
+                    >Salvar</button>
+            </div>
+        </div>
+        
+        <!-- Msg Carregando -->
+    </ion-nav-view>
+
+    </ion-content>
+   
+</ion-view>
